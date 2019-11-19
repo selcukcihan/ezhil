@@ -7,9 +7,9 @@
 		{{ partial "head.html" . }}
 
 		{{ if isset .Data "Term" }}
-			<h1>Entries tagged - "{{ .Data.Term }}"</h1>
+			<h1>"{{ .Data.Term }}" - etiketli yazılar</h1>
 		{{ else }}
-			<h1 class="page-title">All articles</h1>
+			<h1 class="page-title">Tüm yazılar</h1>
 		{{ end }}
 
 		<ul class="posts">
@@ -17,7 +17,7 @@
 			{{- if (in (.Site.Params.excludedTypes | default (slice "page")) .Type) -}}
 			{{- else -}}
 			<li class="post">
-				<a href="{{ .RelPermalink }}">{{.Title}}</a> <span class="meta">{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</span>
+				<a href="{{ .RelPermalink }}">{{.Title}}</a> <span class="meta">{{ dateFormat "02/01/2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</span>
 			</li>
 			{{- end -}}
 			{{- end -}}
